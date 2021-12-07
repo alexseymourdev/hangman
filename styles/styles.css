@@ -1,3 +1,111 @@
-body{
-    background:yellow;
+.hangmanContainer{
+    width:600px;
+    height:400px;
+    position:relative;
+}
+
+.base{
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    background:black;
+    width:580px;
+    height:20px;
+}
+
+.post{
+    position:absolute;
+    bottom:10px;
+    left:180px;
+    background:black;
+    width:20px;
+    height:380px;
+}
+
+.top{
+    position:absolute;
+    top:10px;
+    left:200px;
+    background:black;
+    width:200px;
+    height:20px;
+}
+
+.diagonal{
+    position:absolute;
+    top:65px;
+    left:170px;
+    background:black;
+    width:160px;
+    height:20px;
+    transform: rotate(315deg);
+}
+
+.noose{
+    position:absolute;
+    top:10px;
+    left:380px;
+    background:black;
+    width:20px;
+    height:50px;
+}
+
+.head{
+    position:absolute;
+    top:50px;
+    left:355px;
+    background:transparent;
+    border:10px solid black;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+}
+
+.body{
+    position:absolute;
+    top:115px;
+    left:380px;
+    background:black;
+    width:20px;
+    height:100px;
+}
+
+.leftArm{
+    position:absolute;
+    top:115px;
+    left:360px;
+    background:black;
+    width:20px;
+    height:50px;
+    transform: rotate(315deg);
+}
+
+.rightArm{
+    position:absolute;
+    top:115px;
+    left:400px;
+    background:black;
+    width:20px;
+    height:50px;
+    transform: rotate(45deg);
+}
+
+.leftLeg{
+    position:absolute;
+    top:200px;
+    left:360px;
+    background:black;
+    width:20px;
+    height:50px;
+    transform: rotate(45deg);
+}
+
+.rightLeg{
+    position:absolute;
+    top:200px;
+    left:400px;
+    background:black;
+    width:20px;
+    height:50px;
+    transform: rotate(315deg);
 }
