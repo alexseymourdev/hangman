@@ -34,6 +34,23 @@ allLetters.forEach(function(letter){
     });
 });
 
+document.addEventListener('keyup',function(event){
+    // console.log(event.key);
+    let currentLetter = event.key.toUpperCase();
+    allLetters.forEach(function(letter){
+        let dataLetter = letter.innerHTML;
+        console.log(dataLetter);
+        if(currentLetter == dataLetter){
+            if(!letter.classList.contains('clicked')){
+                currentLetter = currentLetter.toLowerCase();
+                // console.log(currentLetter);
+                letter.classList.add('clicked');
+                checkCurrentLetter(currentLetter);
+            }
+        }
+    });
+});
+
 function checkCurrentLetter(currentLetter){
     let answers = [...word.matchAll(currentLetter)];
     // console.log(answers);
