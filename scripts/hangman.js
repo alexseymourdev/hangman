@@ -29,36 +29,40 @@ allLetters.forEach(function(letter){
             let currentLetter = event.target.innerHTML.toLowerCase();
             // console.log(currentLetter);
             currentLetterHTML.classList.add('clicked');
-            let answers = [...word.matchAll(currentLetter)];
-            // console.log(answers);
-            if(answers.length){
-                answers.forEach(function(answer){
-                    // console.log(answer.index);
-                    for(counter=0; counter < guessLetters.length; counter++){
-                        if(counter == answer.index){
-                            // console.log('Correct letter');
-                            guessLetters[answer.index].innerHTML = currentLetter.toUpperCase();
-                        }
-                    }
-                    checkWin();
-                });
-            } else {
-                //show the next part of the hangman.
-                let wrongGuessLetterHTML = '<div class="wrongGuessLetter">'+currentLetter.toUpperCase()+'</div>';
-                wrongGuessContainer.insertAdjacentHTML( 'beforeend', wrongGuessLetterHTML );
-                lifeCounter++;
-                // console.log(lifeCounter);
-                let currentLifeSelector = '.life'+lifeCounter;
-                // console.log(currentLifeSelector);
-                let currentLifeElement = document.querySelector(currentLifeSelector);
-                currentLifeElement.classList.add('active');
-                if(lifeCounter == 11){
-                    endGame();
-                }
-            }
+            checkCurrentLetter(currentLetter);
         }
     });
 });
+
+function checkCurrentLetter(currentLetter){
+    let answers = [...word.matchAll(currentLetter)];
+    // console.log(answers);
+    if(answers.length){
+        answers.forEach(function(answer){
+            // console.log(answer.index);
+            for(counter=0; counter < guessLetters.length; counter++){
+                if(counter == answer.index){
+                    // console.log('Correct letter');
+                    guessLetters[answer.index].innerHTML = currentLetter.toUpperCase();
+                }
+            }
+            checkWin();
+        });
+    } else {
+        //show the next part of the hangman.
+        let wrongGuessLetterHTML = '<div class="wrongGuessLetter">'+currentLetter.toUpperCase()+'</div>';
+        wrongGuessContainer.insertAdjacentHTML( 'beforeend', wrongGuessLetterHTML );
+        lifeCounter++;
+        // console.log(lifeCounter);
+        let currentLifeSelector = '.life'+lifeCounter;
+        // console.log(currentLifeSelector);
+        let currentLifeElement = document.querySelector(currentLifeSelector);
+        currentLifeElement.classList.add('active');
+        if(lifeCounter == 11){
+            endGame();
+        }
+    }
+}
 
 function checkWin(){
     blnGameWon = true;
