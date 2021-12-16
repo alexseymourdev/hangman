@@ -1,0 +1,113 @@
+// GET books from data source
+// CREATE array {arrBooks}
+// LOOP through data
+    // INPUT object into {arrBooks} with properties
+        // title
+        // author
+        // blnRead
+// LOOP through {arrBooks}
+    // INPUT {string} = {objBook.title} + " by " + {objBook.author}
+    // IF ({blnRead})
+        // INPUT {string} = "You have already read " + {string}
+    // ELSE
+        // INPUT {string} = "You still need to read " + {string}
+
+// CREATE {arrRecipes}
+let arrRecipes = [];
+// ADD {objRecipe} to {arrRecipes}
+    // recipeTitle - string
+    // servings - number
+    // ingredients - array
+    // directions - array
+let objRecipe = {
+    recipeTitle:'Beans on toast',
+    servings: 1,
+    ingredients: [
+        'baked beans',
+        'bread',
+        'butter',
+        'black peppe',
+    ],
+    directions:[
+        'Take beans out of tin and place in a saucepan',
+        'Put bread in toaster',
+        'keep returning to bean and stirring',
+        'When toast pops apply butter to toast',
+        'Place the toast on the centre of a plate',
+        'Cover toast with beans',
+        'Add black pepper'
+    ]
+}
+arrRecipes.push(objRecipe);
+objRecipe = {
+    recipeTitle:'eggs on toast',
+    servings: 1,
+    ingredients: [
+        'eggs',
+        'bread',
+        'butter',
+        'black peppe',
+    ],
+    directions:[
+        'Take eggs out of tin and place in a frying pan',
+        'Put bread in toaster',
+        'keep returning to bean and stirring',
+        'When toast pops apply butter to toast',
+        'Place the toast on the centre of a plate',
+        'Cover toast with eggs',
+        'Add black pepper'
+    ]
+}
+arrRecipes.push(objRecipe);
+// LOOP through {arrRecipe}
+arrRecipes.forEach(function(recipe){
+    // OUTPUT recipeTitle
+    console.log(recipe.recipeTitle);
+    // OUTPUT servings
+    console.log(recipe.servings);
+    // LOOP through objRecipe.ingredients
+    for(counter=0; counter < recipe.ingredients.length; counter++){
+        // OUTPUT each ingredient
+        console.log(recipe.ingredients[counter]);
+    }
+    // LOOP thorugh objRecipe.directions
+    for(counter=0; counter < recipe.directions.length; counter++){
+        // OUTPUT each direction
+        console.log(recipe.directions[counter]);
+    }
+});
+ 
+// FUNCTION fixstart({word} - string)
+function fixStart(word){
+    // GET first character of the word passed through
+    let firstCharacter = word[0];
+    // CREATE a variable called {newWord} with the first character
+    let newWord = firstCharacter;
+    // LOOP through each character of {word}
+    for(counter=0; counter < word.length; counter++){
+        // IF this is the first character
+        if(counter == 0){
+            // continue through loop
+            continue;
+        }
+        // GET currentCharacter
+        let currentCharacter = word[counter];
+        // IF character is not the same as first character
+        if(currentCharacter != firstCharacter){
+            // ADD character to {newWord}
+            newWord += currentCharacter;
+        } 
+        // ELSE
+        else {
+            // ADD * to {newWord}
+            newWord += '*';
+        }
+    }
+    // RETURN {newWord}
+    return newWord;
+}
+
+let word = fixStart('bubble');
+console.log(word);
+word = fixStart('turtle');
+console.log(word);
